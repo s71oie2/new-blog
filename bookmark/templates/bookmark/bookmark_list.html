@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOKMARK LIST</title>
+</head>
+<body>
+    <div id="content">
+        <h1>217230107 김소이</h1>
+        <p>자주 방문하는 사이트입니다.</p>
+        <ul>
+            {% for bookmark in object_list  %}
+                <li>
+                    <a href="{% url 'detail' bookmark.id %}">
+                        {{ bookmark }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
