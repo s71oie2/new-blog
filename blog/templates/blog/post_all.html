@@ -5,9 +5,9 @@
 기본값 object_list 대신 정의했지만, object_list 역시 사용 가능함-->
 {% for post in posts %}
     <h2>
-        <!--href='blog/post/django-example/'과 같은 슬러그 형태로 링크 처리하되,
-        {{ blog.models.Post.get_absolute_url() 함수 }} 또는
-        {% url url_name pk %}}로 링크 처리-->
+{#        <!--href='blog/post/django-example/'과 같은 슬러그 형태로 링크 처리하되,#}
+{#        {{ blog.models.Post.get_absolute_url() 함수 }} 또는#}
+{#        {% url url_name pk %}}로 링크 처리-->#}
         <a href='{{ post.get_absolute_url }}'>
         <!--위 a 요소와 아래 a 요소는 동일한 코드이지만,
         위는 url 패턴을 간접 태그 인자로 사용하지만,
