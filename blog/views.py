@@ -1,8 +1,7 @@
 # 뷰 작성에 필요한 클래스형 제넥릭 뷰 임포트
 from django.views.generic import ListView, DetailView
 # 뷰 작성에 필요한 날짜 제네릭 뷰 임포트
-from django.views.generic.dates import ArchiveIndexView, \
-    YearArchiveView, MonthArchiveView, DayArchiveView, TodayArchiveView
+from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, TodayArchiveView
 # blog.models.Post 클래스 임포트
 from blog.models import Post
 

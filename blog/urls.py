@@ -5,7 +5,7 @@ from blog.views import * # 이렇게 수정하면 아래와 같이 views.~ 형�
 urlpatterns = [
 
     # Example: /
-    url(r'^$',      PostLV.as_view(), name='index'),
+    url(r'^$', PostLV.as_view(), name='index'),
     # Example: /post/ (same as /)
     url(r'^post/$', PostLV.as_view(), name='post_list'),
 
