@@ -31,7 +31,7 @@ urlpatterns = [
     # url 패턴 매칭을 '/' 단위로 처리하기 위하여 아래와 같이 수정
     # 이에 따라서 템플릿에서도 수정이 필요함
     url(r'^t_CBV/$', views.BookmarkLV.as_view(), name='index_t_CBV'),
-]  
+]
 # 주의할 점
 # bookmark.urls 내부에서 지정한 url 패턴의 이름 'index', 'detail', ... 등을
 # 템플릿에서 사용할 때, 이름공간 bookmark를 포함하도록

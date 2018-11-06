@@ -24,8 +24,6 @@ SECRET_KEY = 'dr6w6(6q%2yd+n%ub)w#iih0lh%5g57m!eq32!4+%4=3ki%unh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# DEBUG = False  # 블로그에서 봄
-
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -43,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookmark.apps.BookmarkConfig',     # bookmark 앱을 추가 등록
-    'blog.apps.BlogConfig',    # blog 앱을 추가 등록
+    'bookmark.apps.BookmarkConfig',     # (ch02) bookmark 앱을 추가 등록
+    'blog.apps.BlogConfig',             # (ch03) blog 앱을 추가 등록
 ]
 
 MIDDLEWARE = [
@@ -111,7 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'ko-kr'# 'en-us' # 수정 (교과서 40 쪽)
+# LANGUAGE_CODE = 'ko-kr'# 'en-us' # 수정 (교과서 40 쪽)
+LANGUAGE_CODE = 'en-us' # 원래대로
 
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Seoul'         # 수정 (교과서 40 쪽)
@@ -131,6 +130,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]   # 추가 (교과서 40 �
 
 MEDIA_URL = '/media/'                             # 추가 (교과서 40 쪽)
 MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]    # 추가 (교과서 40 쪽)
-
-
-

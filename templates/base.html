@@ -6,8 +6,10 @@
 
 {% load staticfiles %}  <!--정적 파일인 css 연결하기 위하여, staticfiles를 로드-->
 <!--스타일시트 css/base.css 작성이 필요함-->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet"> {#폰트 추가. poor_story#}
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "css/base.css" %}{% endblock %}" />
-<link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />   <!--추가적인 css파일 불러오고 싶으면 사용. 현재는 비어있음-->
 
 </head>
 
@@ -15,39 +17,39 @@
 
 <div id="header">                   <!--헤더 영역-->
     <h2 class="maintitle">쉽고 빠른 장고 웹 프로그래밍</h2>
-    <h4 class="welcome">반갑습니다. <a href="#">s71oie2 김소이</a>님  /
+    <h4 class="welcome">반갑습니다. <a href="#">김소이 (s71oie2)</a>님.  /
                 <a href="#">비밀번호 변경</a> /
                 <a href="#">로그아웃</a>
     </h4>
 </div>
 
 <div id="menu">                     <!--메뉴 영역-->
-    <li><a href="#">홈</a></li>
-    <li><a href="#">책갈피</a></li>
-    <li><a href="#">게시판</a></li>
+    <li><a href="{% url 'home' %}">홈</a></li>
+    <li><a href="{% url 'bookmark:index' %}">책갈피</a></li>
+    <li><a href="{% url 'blog:index' %}">게시판</a></li>
     <li><a href="#">사진첩</a></li>
 
     <li><a href="#">추가&bigtriangledown;</a>             <!--드롭다운 메뉴 구성-->
         <ul>
             <li><a href="#">책갈피</a></li>
             <li><a href="#">게시판</a></li>
-            <li><a href="#">사진첩</a></li>
+	        <li><a href="#">사진첩</a></li>
         </ul>
     </li>
     <li><a href="#">편집&bigtriangledown;</a>             <!--드롭다운 메뉴 구성-->
         <ul>
             <li><a href="#">책갈피</a></li>
             <li><a href="#">게시판</a></li>
-            <li><a href="#">사진첩</a></li>
+	        <li><a href="#">사진첩</a></li>
         </ul>
     </li>
 
-    <li><a href="#">저장소</a></li>
+    <li><a href="{% url 'blog:post_archive' %}">저장소</a></li>
     <li><a href="#">검색</a></li>
-    <li><a href="#">관리자</a></li>
+    <li><a href="{% url 'admin:index' %}">관리자</a></li>
 </div>
 
-{% block content %}{% endblock %}   <!--블록 태그로 콘텐츠 영역 정의 --> <!--endblock은 html의 상속!-->
+{% block content %}{% endblock %}   <!--블록 태그로 콘텐츠 영역 정의 -->
 
 {% block footer %}{% endblock %}    <!--블록 태그로 풋터 영역 정의-->
 

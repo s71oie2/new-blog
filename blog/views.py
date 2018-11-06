@@ -1,7 +1,8 @@
 # 뷰 작성에 필요한 클래스형 제넥릭 뷰 임포트
 from django.views.generic import ListView, DetailView
 # 뷰 작성에 필요한 날짜 제네릭 뷰 임포트
-from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, TodayArchiveView
+from django.views.generic.dates import ArchiveIndexView, \
+    YearArchiveView, MonthArchiveView, DayArchiveView, TodayArchiveView
 # blog.models.Post 클래스 임포트
 from blog.models import Post
 
@@ -13,7 +14,7 @@ class PostLV(ListView) :
     # 컨텍스트 객체 이름을 기본값(object_list)와 다르게 지정했지만,
     # 기본값(object_list)도 여전히 사용 가능함
     context_object_name = 'posts'
-    paginate_by = 2  # 페이지 당 2 개 객체를 처리하도록 지정
+    paginate_by = 5  # 페이지 당 5 개 객체를 처리하도록 지정
 
 # DetailView를 상속받아서 PostDV 작성
 # 기본키 대신 slug를 전달 받고, 나머지 속성은 기본값 사용
@@ -57,3 +58,4 @@ class PostTAV(TodayArchiveView) :
     date_field = 'modify_date'
     # URLconf에서 지정한 당일(today)에 해당하는 object_list를 구성하고
     # 이를 템플릿에 전달함
+

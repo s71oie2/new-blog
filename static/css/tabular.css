@@ -1,0 +1,27 @@
+#tbl {
+
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+        }
+
+#tbl td, #tbl th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tbl tr:nth-child(even){background-color: #f2f2f2;}
+
+#tbl tr:hover {background-color: #ddd;}
+
+#tbl th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #9D7AD2;
+    color: white;
+}
+.centered {  /*이전 페이지 버튼이 중앙으로 오도록 설정*/
+    text-align: center;
+}
+.leftpadding30percent { padding-left: 35%; }  /*저장소 부분의 ul 부분이 가운데로 오도록 조정. 내가 35로 바꿈*/

@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from mysite.views import HomeView                 # 추가!!!
+from mysite.views import HomeView  # 추가!!!
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),

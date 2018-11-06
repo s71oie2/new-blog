@@ -1,65 +1,30 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>BOOKMARK LIST</title>
-    <style>
-        #tb1 {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 90%;
-            margin: auto;
-        }
-        #tb1 td, #tb1 th {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        #tb1 tr:nth-child(even){background-color: #f2f2f2;}
-        #tb1 tr:hover {background-color: #ddd;}
-        #tb1 th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #B5B2FF;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <div id="content">
-        <h1>217230107 김소이</h1>
-        {% if request.path == "/bookmark/t_CBV/" %}
-            <p>장고 북마크 표 형식으로 표현하기!</p>
-            <table id="tb1">
+{% extends "base.html" %}  <!--상속. 반드시 첫 줄에 있어야 함-->
+{% block title %}장고 책갈피 목록{% endblock %}
+{% load staticfiles %}  <!--정적 파일을 읽어들임. css 파일 불러오는 아래 명령 실행하기 위해 필요-->
+{#static 파일이 어디있는지 settings.py에서 찾음. 맨 밑 쪽의 static의 dir이 어디있는지 확인#}
+{% block extrastyle %}{% static "css/tabular.css" %}{% endblock %}
+{% block content %} <!--콘텐츠 블록 재정의-->
+    <div id="content"> <!--base.css 내부의 div#contents 스타일 적용으로, 표형식으로만 보이게 함-->
+        <h1>바로가기 모음</h1>
+        <table id="tbl" >
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>url</th>
+            </tr>
+            {% for bookmark in object_list %} <!-- 디폴트 컨텍스트 변수가 objecct_list -->
                 <tr>
-                    <th>id</th>
-                    <th>title</th>
-                    <th>url</th>
-                </tr>
-                {% for bookmark in object_list %}
-                    <tr>
-                        <td>{{ bookmark.id }}</td>
-                        <td>{{ bookmark.title }}</td>
-                        <td>
-                            <a href="{% url 'bookmark:detail' bookmark.id %}">
-                                {{ bookmark.url }}
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-        {% else %}
-            <p>교과서 스타일</p>
-            <ul>
-                {% for bookmark in object_list %}
-                    <li>
+                    <td>{{ bookmark.id }}</td>
+                    <td>{{ bookmark.title }}</td>
+                    <td>
+                        <!-- bookmark 이름공간의 detail이라는 name을 가지는 url로-->
+                        <!-- 연결하면서 bookmark.id를 매개변수로 전달-->
                         <a href="{% url 'bookmark:detail' bookmark.id %}">
-                            {{ bookmark }}
+                            {{ bookmark.url }}
                         </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
-</body>
-</html>
+{% endblock %}
