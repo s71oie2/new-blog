@@ -62,6 +62,9 @@ urlpatterns = [
     # [^/]+ 는 슬래시 아닌 게 여러 개 나오면
     # (?u) 는 앞에서 잡은 내용을 UTF-8 방식으로 처리 - 한글 주소 처리 가능하게 함
     url(r'^tag/(?P<tag>[^/]+(?u))/$', PostTOL.as_view(), name='tagged_object_list'),
+
+    # Example: /search/  # ch09 1/1
+    url(r'^search/$', SearchFormView.as_view(), name='search'),
 ]
 # 위에서 지정한 name 항목을 템플릿에서 사용할 때에는 이름공간을 포함하여,
 # blog:index, blog:post_list, blog:post_detail, blog:post_archive, ... 로 명시해야 함
